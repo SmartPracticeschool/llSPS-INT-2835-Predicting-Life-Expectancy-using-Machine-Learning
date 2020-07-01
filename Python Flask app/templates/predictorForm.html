@@ -1,0 +1,337 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="content-section">
+        <div class="output-container">
+            <center>
+              <div id="output">
+                <h5 id="a">Predicted Life Expectancy: </h5>
+                <h3 id="b">{{ form.abc}}</h3>
+              </div>
+            </center>
+          </div>
+        <form method="POST" action={{url_for('predict')}}>
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <!-- <legend class="border-bottom mb-4">Join Today</legend> -->
+                <div class="form-group">
+                    {{ form.country.label(class="form-control-label")}}
+                    {% if form.country.errors %}
+                        {{ form.country(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.country.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.country(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.year.label(class="form-control-label")}}
+                    {% if form.year.errors %}
+                        {{ form.year(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.year.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.year(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.status.label(class="form-control-label")}}
+                    {% if form.status.errors %}
+                        {{ form.status(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.status.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.status(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.adult_mortality.label(class="form-control-label")}}
+                    {% if form.adult_mortality.errors %}
+                        {{ form.adult_mortality(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.adult_mortality.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.adult_mortality(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.infant_deaths.label(class="form-control-label")}}
+                    {% if form.infant_deaths.errors %}
+                        {{ form.infant_deaths(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.infant_deaths.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.infant_deaths(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.alcohol.label(class="form-control-label")}}
+                    {% if form.alcohol.errors %}
+                        {{ form.alcohol(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.alcohol.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.alcohol(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.percentage_expenditure.label(class="form-control-label")}}
+                    {% if form.percentage_expenditure.errors %}
+                        {{ form.percentage_expenditure(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.percentage_expenditure.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.percentage_expenditure(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.hepatitis_b.label(class="form-control-label")}}
+                    {% if form.hepatitis_b.errors %}
+                        {{ form.hepatitis_b(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.hepatitis_b.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.hepatitis_b(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.measles.label(class="form-control-label")}}
+                    {% if form.measles.errors %}
+                        {{ form.measles(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.measles.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.measles(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.bmi.label(class="form-control-label")}}
+                    {% if form.bmi.errors %}
+                        {{ form.bmi(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.bmi.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.bmi(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.under_five_deaths.label(class="form-control-label")}}
+                    {% if form.under_five_deaths.errors %}
+                        {{ form.under_five_deaths(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.under_five_deaths.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.under_five_deaths(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.polio.label(class="form-control-label")}}
+                    {% if form.polio.errors %}
+                        {{ form.polio(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.polio.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.polio(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.total_expenditure.label(class="form-control-label")}}
+                    {% if form.total_expenditure.errors %}
+                        {{ form.total_expenditure(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.total_expenditure.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.total_expenditure(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.diphtheria.label(class="form-control-label")}}
+                    {% if form.diphtheria.errors %}
+                        {{ form.diphtheria(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.diphtheria.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.diphtheria(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.hiv.label(class="form-control-label")}}
+                    {% if form.hiv.errors %}
+                        {{ form.hiv(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.hiv.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.hiv(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.gdp.label(class="form-control-label")}}
+                    {% if form.gdp.errors %}
+                        {{ form.gdp(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.gdp.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.gdp(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.population.label(class="form-control-label")}}
+                    {% if form.population.errors %}
+                        {{ form.population(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.population.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.population(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.thinness_1_to_19_years.label(class="form-control-label")}}
+                    {% if form.thinness_1_to_19_years.errors %}
+                        {{ form.thinness_1_to_19_years(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.thinness_1_to_19_years.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.thinness_1_to_19_years(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.thinness_5_to_9_years.label(class="form-control-label")}}
+                    {% if form.thinness_5_to_9_years.errors %}
+                        {{ form.thinness_5_to_9_years(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.thinness_5_to_9_years.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.thinness_5_to_9_years(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.income.label(class="form-control-label")}}
+                    {% if form.income.errors %}
+                        {{ form.income(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.income.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.income(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.schooling.label(class="form-control-label")}}
+                    {% if form.schooling.errors %}
+                        {{ form.schooling(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.schooling.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                    </div>
+                    {% else %}
+                         {{ form.schooling(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                
+            </fieldset>
+            <div class="form-group">
+                <!-- {{ form.submit(class="btn btn-outline-info") }} -->
+                <input id="submit"  name="submit" type="submit" value="Predict" onclick="startSpinner()" class="btn btn-outline-info">
+            </div>
+        </form>
+        <script>
+        function startSpinner() {
+            var x = document.getElementById("loader");
+            x.style.display = "block";
+            var output = document.getElementById("output");
+            output.style.display = "none"
+            setTimeout(function () {
+              var y = document.getElementById("output");
+              var x = document.getElementById("loader");
+              var a = document.getElementById("a");
+              var b = document.getElementById("b");
+              x.style.display = "none";
+              y.style.display = "block"
+              a.style.display = "block"
+              b.style.display = "block"
+            }, 3000);
+      
+          }
+        </script>
+    </div>
+{% endblock content %}
