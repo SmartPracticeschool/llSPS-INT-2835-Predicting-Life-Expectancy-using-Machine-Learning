@@ -1,15 +1,15 @@
 [
     {
-        "id": "3c7c8f37.9002d",
+        "id": "50c6f13e.d28a6",
         "type": "tab",
-        "label": "UI for Life Expectancy Prediction",
+        "label": "UI for Life Expectancy Prediction ",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "c33ae67b.11da38",
+        "id": "48d98097.65a2b",
         "type": "function",
-        "z": "3c7c8f37.9002d",
+        "z": "50c6f13e.d28a6",
         "name": "PreToken",
         "func": "// global.set(\"c_name\",msg.payload.c_name)\nglobal.set(\"ye\",msg.payload.ye)\nglobal.set(\"status\",msg.payload.stat)\nglobal.set(\"adult_mort\",msg.payload.adult_mort)\nglobal.set(\"in_death\",msg.payload.in_death)\nglobal.set(\"alcohol\",msg.payload.alcohol)\nglobal.set(\"per_expen\",msg.payload.per_expen)\nglobal.set(\"hepa_b\",msg.payload.hepa_b)\nglobal.set(\"measles\",msg.payload.measles)\nglobal.set(\"bmi\",msg.payload.bmi)\nglobal.set(\"un_five_death\",msg.payload.un_five_death)\nglobal.set(\"polio\",msg.payload.polio)\nglobal.set(\"total_expen\",msg.payload.total_expen)\nglobal.set(\"diphth\",msg.payload.diphth)\nglobal.set(\"hiv\",msg.payload.hiv)\nglobal.set(\"gdp\",msg.payload.gdp)\nglobal.set(\"population\",msg.payload.population)\nglobal.set(\"thin_19\",msg.payload.thin_19)\nglobal.set(\"thin_9\",msg.payload.thin_9)\nglobal.set(\"income_comp\",msg.payload.income_comp)\nglobal.set(\"schooling\",msg.payload.schooling)\n\nvar apikey=\"Q5OTnXXpHC_NAFPq0PQFGrg1AV4VeS7hUHr80lsPgTo1\";\nmsg.headers={\"content-type\":\"application/x-www-form-urlencoded\"}\nmsg.payload={\"grant_type\":\"urn:ibm:params:oauth:grant-type:apikey\",\"apikey\":apikey}\nreturn msg;",
         "outputs": 1,
@@ -18,14 +18,14 @@
         "y": 260,
         "wires": [
             [
-                "9d3b48c5.5d80e8"
+                "335eb657.50390a"
             ]
         ]
     },
     {
-        "id": "9d3b48c5.5d80e8",
+        "id": "335eb657.50390a",
         "type": "http request",
-        "z": "3c7c8f37.9002d",
+        "z": "50c6f13e.d28a6",
         "name": "",
         "method": "POST",
         "ret": "obj",
@@ -39,14 +39,14 @@
         "y": 260,
         "wires": [
             [
-                "9111ba94.358e98"
+                "324980.67ba468"
             ]
         ]
     },
     {
-        "id": "6dcc1a68.2d6bd4",
+        "id": "88136be7.a0ae68",
         "type": "inject",
-        "z": "3c7c8f37.9002d",
+        "z": "50c6f13e.d28a6",
         "name": "",
         "topic": "",
         "payload": "",
@@ -59,14 +59,14 @@
         "y": 180,
         "wires": [
             [
-                "c33ae67b.11da38"
+                "48d98097.65a2b"
             ]
         ]
     },
     {
-        "id": "b53e9c8b.de2df",
+        "id": "37928b1a.8683c4",
         "type": "debug",
-        "z": "3c7c8f37.9002d",
+        "z": "50c6f13e.d28a6",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -79,9 +79,9 @@
         "wires": []
     },
     {
-        "id": "9111ba94.358e98",
+        "id": "324980.67ba468",
         "type": "function",
-        "z": "3c7c8f37.9002d",
+        "z": "50c6f13e.d28a6",
         "name": "Send To EndPoint",
         "func": "var token=msg.payload.access_token\nvar instance_id=\"28607ee8-f59c-42a8-87e7-5941b3198461\"\nmsg.headers={'Content-Type': 'application/json',\"Authorization\":\"Bearer \"+token,\"ML-Instance-ID\":instance_id}\n\n// var c_name = global.get('c_name')\nvar ye = global.get('ye')\nvar status = global.get('status')\nvar adult_mort = global.get('adult_mort')\nvar in_death = global.get('in_death')\nvar alcohol = global.get('alcohol')\nvar per_expen = global.get('per_expen')\nvar hepa_b = global.get('hepa_b')\nvar measles = global.get('measles')\nvar bmi = global.get('bmi')\nvar un_five_death = global.get('un_five_death')\nvar polio = global.get('polio')\nvar total_expen = global.get('total_expen')\nvar diphth = global.get('diphth')\nvar hiv = global.get('hiv')\nvar gdp = global.get('gdp')\nvar population = global.get('population')\nvar thin_19 = global.get('thin_19')\nvar thin_9 = global.get('thin_9')\nvar income_comp = global.get('income_comp')\nvar schooling = global.get('schooling')\n\nmsg.payload={\"fields\": \n[ 'Year', 'Status', 'Adult Mortality', 'infant deaths', \n'Alcohol', 'percentage expenditure', 'Hepatitis B', 'Measles ', \n' BMI ', 'under-five deaths ', 'Polio', 'Total expenditure',\n'Diphtheria ', ' HIV/AIDS', 'GDP', 'Population', ' thinness  1-19 years',\n' thinness 5-9 years', 'Income composition of resources', 'Schooling'],\n\"values\":\n[[ye, status, adult_mort, in_death, alcohol, \nper_expen,hepa_b, measles, bmi, un_five_death,polio, \ntotal_expen,diphth,hiv,gdp,population,thin_19, \nthin_9,income_comp,schooling]]\n}\nreturn msg;",
         "outputs": 1,
@@ -90,14 +90,14 @@
         "y": 280,
         "wires": [
             [
-                "d8502ff9.25e77"
+                "1c31c058.0602"
             ]
         ]
     },
     {
-        "id": "d8502ff9.25e77",
+        "id": "1c31c058.0602",
         "type": "http request",
-        "z": "3c7c8f37.9002d",
+        "z": "50c6f13e.d28a6",
         "name": "",
         "method": "POST",
         "ret": "obj",
@@ -111,14 +111,14 @@
         "y": 180,
         "wires": [
             [
-                "7706e593.4602cc"
+                "89db5b2c.27dca8"
             ]
         ]
     },
     {
-        "id": "7706e593.4602cc",
+        "id": "89db5b2c.27dca8",
         "type": "function",
-        "z": "3c7c8f37.9002d",
+        "z": "50c6f13e.d28a6",
         "name": "Get From EndPoint",
         "func": "msg.payload=msg.payload.values[0][0];\nreturn msg;\n",
         "outputs": 1,
@@ -127,15 +127,15 @@
         "y": 80,
         "wires": [
             [
-                "b4a0fecc.5c50c",
-                "b53e9c8b.de2df"
+                "ca430266.121e9",
+                "37928b1a.8683c4"
             ]
         ]
     },
     {
-        "id": "af8c088.67ea2f8",
+        "id": "717615c9.c812ac",
         "type": "ui_form",
-        "z": "3c7c8f37.9002d",
+        "z": "50c6f13e.d28a6",
         "name": "",
         "label": "",
         "group": "2ab45756.fcf838",
@@ -158,9 +158,9 @@
                 "rows": null
             },
             {
-                "label": "Status",
+                "label": "Developing",
                 "value": "stat",
-                "type": "text",
+                "type": "switch",
                 "required": false,
                 "rows": null
             },
@@ -294,7 +294,7 @@
         "formValue": {
             "name": "",
             "ye": "",
-            "stat": "",
+            "stat": false,
             "adult_mort": "",
             "in_death": "",
             "alcohol": "",
@@ -322,14 +322,14 @@
         "y": 320,
         "wires": [
             [
-                "c33ae67b.11da38"
+                "48d98097.65a2b"
             ]
         ]
     },
     {
-        "id": "b4a0fecc.5c50c",
+        "id": "ca430266.121e9",
         "type": "ui_text",
-        "z": "3c7c8f37.9002d",
+        "z": "50c6f13e.d28a6",
         "group": "2ab45756.fcf838",
         "order": 1,
         "width": 0,
