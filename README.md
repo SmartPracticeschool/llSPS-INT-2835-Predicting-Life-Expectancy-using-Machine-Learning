@@ -5,4 +5,6 @@ A typical Regression Machine Learning project leverages historical data to predi
 
 Life expectancy is a statistical measure of the average time a human being is expected to live, Life expectancy depends on various factors: Regional variations, Economic Circumstances, Sex Differences, Mental Illnesses, Physical Illnesses, Education, Year of their birth and other demographic factors. This problem statement provides a way to predict average life expectancy of people living in a country when various factors such as year, GDP, education, alcohol intake of people in the country, expenditure on healthcare system and some specific disease related deaths that happened in the country are given.
 
-### Node-Red App URL:https://node-red-lifeexpectancy.eu-gb.mybluemix.net/ui/#!/0?socketid=i59MBRkaaq1nB49wAAAN
+### Node-Red App URL(ML Notebook):https://node-red-lifeexpectancy.eu-gb.mybluemix.net/ui/#!/0?socketid=i59MBRkaaq1nB49wAAAN
+
+### Node-Red App URL(for AutoAI):https://node-red-lifeexpectancy.eu-gb.mybluemix.net/ui/#!/0?socketid=iquFJihxRBEdLd09AAAl
